@@ -132,6 +132,29 @@ return outputArr;
 //  1- rejectedApplicants are applications that has both the names empty or null and whoever have one year or less of Experience
 
 const applicationsStatics = (arr) => {
+    let  result={
+        python_devs: 0,
+       javaScript_devs:0,
+       dotNet_devs: 0,
+      java_devs: 0,
+      totalApplicants: arr.length,
+      rejectedApplicants: 0,
+    }
+    for(let i=0;i<arr.length;i++){
+        if((arr[i].firstName==null&&arr[i].lastName==null)||arr[i].yearsOfExperience<1)
+           result.rejectedApplicants++;
+        else{
+            if(arr[i].tech=="Python")
+            result.python_devs++;
+            else if(arr[i].tech=="JS")
+        result.javaScript_devs++;
+           else if(arr[i].tech==".Net")
+           result.dotNet_devs++;
+        else
+        result.java_devs++;
+        }
+    }
+    return result;
     // write your code here
 };
 // -------------------------------------------------------------------------------------------------------
@@ -259,7 +282,19 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
+    for(let i=0;i<data.grades.length;i++){
+        for(let j=0;j<data.grades[i].classes.length;j++){
+            let sum=0;
+            for(let k=0;k<data.grades[i].classes[j].classScores.length;k++){
+                sum+=data.grades[i].classes[j].classScores[k];
+            }
+            sum=Math.floor(sum/data.grades[i].classes[j].classScores.length);
+            data.grades[i].classes[j].avg=sum;
+            
+        }
+    }
     // write your code here
+    return data;
 };
 // -------------------------------------------------------------------------------------------------------
 

@@ -59,7 +59,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "\nfunction squares(a, b) {\n    // Write your code here\n    let arr=[0];\n    let count=0;\n    for(let i=a;i<=b;i++){\n        if(Number.isInteger(Math.sqrt(i)))\n        count++;\n    } \n    return count;\n}"
             ],
             "outputs": []
         }
